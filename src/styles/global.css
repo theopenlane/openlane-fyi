@@ -1,0 +1,410 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+@import "tailwindcss";
+@import "@fontsource/outfit/100.css";
+@import "@fontsource/outfit/300.css";
+@import "@fontsource/outfit";
+@import "@fontsource/outfit/200.css";
+@import "@fontsource/outfit/400.css";
+@import "@fontsource/outfit/500.css";
+@import "@fontsource/outfit/600.css";
+@import "@fontsource/outfit/700.css";
+@import "@fontsource/outfit/800.css";
+@import "@fontsource/outfit/900.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", "sans-serif";
+  /* Text colors */
+  --text: #2e2e2e;
+  --text-invert: #ffffff;
+  --text-white: #ffffff;
+  --text-light: #aabec5;
+  --color-card: #ffffff;
+  --color-icon-primary: #3f76ff;
+
+  /* Old colors */
+  --color-primary: #2ccbab;
+  --text-color-primary: #2e2e2e;
+  --text-color-secondary: #2ccbab;
+  --color-blue-50: #0057b5;
+  --color-slate-50: #f8fafc;
+  --color-brand-100: #cdfaee;
+  --color-brand-400: #2ccbab;
+  --color-brand-300: #60e8c9;
+  --color-brand-800: #125d52;
+  --color-slate-700: #334155;
+  --partner-color: #f1f5f9;
+  --destructive: #3498da;
+  --color-border: #e1e9ec;
+  --subbg-bg-4: #e8fcf6;
+  --toggle-color: #cdfaee;
+  --section-bg-6-Linear-top: #fff;
+  --section-bg-6-Linear-bot: #f0fdf9;
+
+  /* Background colors */
+  --background-color: #f9fbfc;
+  --blog-color: #ffffff;
+  --asset-bg: #cdfaee;
+
+  /* Decoration colors */
+  --decoration-color-primary: #2ccbab;
+  --text-Linear-top: #2e2e2e;
+  --text-Linear-bot: #16b698;
+  --Text-gradient: linear-gradient(
+    90deg,
+    var(--text) 55.6%,
+    var(--text-Linear-bot) 77.99%
+  );
+  --shadow-me: #f9fafb;
+  --team-color: #052e2a;
+  --text-supporting: #9ca3af;
+  --bg-dark: #161f28;
+  --border-green: #15803d;
+  --active-tab-color: #cdfaee;
+  --form-border-color: #aabec5;
+  --product-hover: #e2e8f0;
+}
+
+.dark {
+  /* Text colors */
+  --text: #f0f0f0;
+  --text-white: #ffffff;
+  --text-invert: #2e2e2e;
+  --text-light: #aabdc5;
+  --color-slate-700: #334155;
+  --color-brand-300: #60e8c9;
+  --color-slate-50: #161f28;
+  --color-card: #1c2630;
+  --section-bg-6-Linear-top: #144d45;
+  --section-bg-6-Linear-bot: #161f28;
+  --subbg-bg-4: #11484c;
+  --color-border: #303e4a;
+  --color-icon-primary: #3f76ff;
+  --destructive: #017bfe;
+  --partner-color: #1e293b;
+  --toggle-color: #144d45;
+
+  /* Old colors */
+  --color-primary: #2ccbab;
+  --text-color-primary: #f0f0f0;
+  --text-color-secondary: #2ccbab;
+  --color-brand-100: #125d52;
+
+  /* Background colors */
+  --background-color: #1c2630;
+  --blog-color: #000000;
+  --asset-bg: #125d52;
+
+  /* Decoration colors */
+  --decoration-color-primary: #2ccbab;
+  --shadow-me: #111827;
+  --team-color: #000000;
+  --text-supporting: #9ca3af;
+  --text-Linear-top: #f0f0f0;
+  --bg-dark: #161f28;
+  --border-green: #15803d;
+  --active-tab-color: #144d45;
+  --form-border-color: #107565;
+  --product-hover: #334155;
+}
+
+@layer utilities {
+  .group-hover\/feedback\:border-primary {
+    --tw-border-opacity: 1;
+    border-color: rgba(var(--color-primary), var(--color-primary));
+  }
+
+  .transition-color-fill {
+    transition:
+      color 0.3s ease,
+      fill 0.3s ease;
+  }
+
+  .border-input {
+    border-color: var(--form-border-color);
+  }
+
+  .active-tab-bg {
+    background: var(--active-tab-color);
+  }
+
+  .bg-slate-50 {
+    background: var(--color-slate-50);
+  }
+
+  .border-green {
+    border-color: var(--border-green);
+  }
+
+  .bg-dark {
+    background: var(--bg-dark);
+  }
+
+  .text-support {
+    color: var(--text-supporting) !important;
+  }
+
+  .text-white {
+    color: var(--text-white) !important;
+  }
+
+  .team-bg {
+    background-color: var(--team-color);
+  }
+
+  .box-shadow {
+    box-shadow: 0 -11px 38.3px 0 var(--shadow-me, #111827);
+  }
+
+  .asset-bg {
+    background-color: var(--asset-bg);
+  }
+
+  .text-color-primary {
+    color: var(--color-primary) !important;
+  }
+
+  .blog-bg-color {
+    background-color: var(--blog-color);
+  }
+
+  .toggle-bg {
+    background-color: var(--toggle-color);
+  }
+
+  .bg-partner {
+    background-color: var(--partner-color);
+  }
+
+  .border-destructive {
+    border-color: var(--destructive);
+  }
+
+  .color-icon-primary {
+    color: var(--color-icon-primary) !important;
+  }
+
+  .border-color {
+    border-color: var(--color-border);
+  }
+
+  .bg-subbg-4 {
+    background-color: var(--subbg-bg-4);
+  }
+
+  .text-invert-primary {
+    color: var(--text-invert) !important;
+  }
+
+  .decoration-color-primary {
+    text-decoration-color: var(--decoration-color-primary);
+  }
+
+  .bg-brand-100 {
+    background-color: var(--color-brand-100);
+  }
+
+  .text-brand-800 {
+    color: var(--color-brand-800);
+  }
+
+  .text-brand {
+    color: var(--color-primary);
+  }
+
+  .color-light {
+    color: var(--text-light) !important;
+  }
+
+  .bg-color-card {
+    background-color: var(--color-card);
+  }
+
+  .text-color {
+    color: var(--text);
+  }
+
+  .feature-bg {
+    background: radial-gradient(
+      296.41% 296.41% at 50% 0%,
+      var(--section-bg-6-Linear-top, #fff) 0%,
+      var(--section-bg-6-Linear-bot, #f0fdf9) 17%
+    );
+  }
+
+  .footer-bg {
+    background: radial-gradient(
+      296.41% 296.41% at 50% 0%,
+      var(--section-bg-6-Linear-top, #144d45) 0%,
+      var(--section-bg-6-Linear-bot, #161f28) 17%
+    );
+  }
+
+  .text-gradient {
+    background: var(
+      --Text-gradient,
+      linear-gradient(
+        90deg,
+        var(--text-Linear-top, #2e2e2e) 55.6%,
+        var(--text-Linear-bot, #16b698) 77.99%
+      )
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding-bottom: 0.3em;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background-color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-size: 100% 600px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 20px;
+  line-height: 1.7;
+}
+main {
+  /*width: 1291px;
+  max-width: calc(100% - 2em);
+  margin: auto;*/
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+  color: var(--text);
+}
+h1 {
+  font-size: 3.052em;
+}
+h2 {
+  font-size: 2.441em;
+}
+h3 {
+  font-size: 1.953em;
+}
+h4 {
+  font-size: 1.563em;
+}
+h5 {
+  font-size: 1.25em;
+}
+strong,
+b {
+  font-weight: 700;
+}
+a {
+  color: var(--text-color-primary);
+}
+p {
+  color: var(--text);
+}
+.prose p {
+  margin-bottom: 2em;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+table {
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+code {
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+pre {
+  padding: 1.5em;
+  border-radius: 8px;
+}
+pre > code {
+  all: unset;
+}
+blockquote {
+  padding: 0 0 0 20px;
+  margin: 0px;
+  font-size: 1.333em;
+}
+hr {
+  border: none;
+}
+button {
+  color: var(--text-color-primary);
+}
+
+li {
+  color: var(--text);
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.4);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(100, 100, 100, 0.6);
+}
+
+/* Hover Styles */
+
+a {
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+a:hover {
+  transition: color 0.3s ease;
+  color: var(--color-primary);
+}
