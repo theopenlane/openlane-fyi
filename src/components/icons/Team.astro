@@ -1,0 +1,27 @@
+---
+import { Linkedin } from "@lucide/astro";
+---
+
+<div class="relative w-full max-w-5xl mx-auto">
+    <div class="relative w-full aspect-[3/2]">
+        <img src="/team/openlane-team.svg" alt="Team"
+             class="mb-40 z-10 w-full h-full object-cover" />
+
+        <div class="absolute inset-0 text-white font-semibold z-20">
+            <a href="https://www.linkedin.com/in/kelsey-waters/" target="_blank"
+               class="absolute left-[5%] top-[35%]  md:left-[5%] md:top-[38%] text-color-primary text-sm hover:!text-brand-300 transition-all duration-300 cursor-pointer flex items-center gap-1">
+                <Linkedin size={14} /> <span>Kelsey, CEO</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/matthew-anderson-a98b0a33/" target="_blank"
+               class="absolute left-[18%] top-[16%] sm:left-[25%] sm:top-[19%] md:left-[31%] md:top-[21%] lg:left-[26%] lg:top-[19%] text-color-primary text-sm hover:!text-brand-300 transition-all duration-300 cursor-pointer flex items-center gap-1">
+                <Linkedin size={14}/> <span>Matt, CTO</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/sfunkhouser/" target="_blank"
+               class="absolute right-[3%] top-[25%] md:right-[14%] md:top-[28%] text-color-primary text-sm hover:!text-brand-300 transition-all duration-300 cursor-pointer flex items-center gap-1">
+                <Linkedin size={14}/> <span>Sarah, Engineering Leader</span>
+            </a>
+        </div>
+    </div>
+</div>
