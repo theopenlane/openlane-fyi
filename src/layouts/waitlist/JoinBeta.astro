@@ -57,7 +57,9 @@ import React from "react";
     <p class="text-sm text-center">
       Spots are limited — join the waitlist today.
     </p>
-    <button
+    <a
+        href="https://getopenlane.io/"
+        target="_blank"
       class="px-6 py-2 border-2 rounded-full border-brand-400 flex items-center gap-2 font-medium text-base cursor-pointer group/feedback hover:border-primary transition-all duration-300"
     >
     <span class="group-hover/feedback:!text-(--color-primary) transition-all duration-300">
@@ -66,7 +68,7 @@ import React from "react";
       <ChevronRight
         class="w-4 h-4 group-hover/feedback:!text-(--color-primary) transition-all duration-300"
       />
-    </button>
+    </a>
   </div>
 </section>
 
@@ -144,6 +146,9 @@ import React from "react";
   import { CSSPlugin } from "gsap/CSSPlugin";
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, CSSPlugin);
   document.addEventListener("astro:page-load", () => {
+    if (window.innerWidth < 768) {
+      return;
+    }
 
     const canvas = document.createElement("canvas");
     canvas.style.cssText =
