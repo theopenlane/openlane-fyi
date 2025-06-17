@@ -5,19 +5,30 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import WaitlistHeader from "../layouts/waitlist/WaitlistHeader.astro";
 import MainSection from "../layouts/waitlist/MainSection.astro";
 import JoinBeta from "../layouts/waitlist/JoinBeta.astro";
+import { CircleCheckBig, CircleX } from "@lucide/astro";
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-	<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-</head>
-<body class="font-outfit">
-<WaitlistHeader />
-<main>
-	<MainSection />
-	<JoinBeta/>
-</main>
-<Footer />
-</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="font-outfit">
+    <WaitlistHeader />
+    <main>
+      <MainSection />
+      <JoinBeta />
+    </main>
+    <Footer />
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2">
+    </div>
+    <div id="toast-icons" class="hidden">
+      <div id="toast-icon-success">
+        <CircleCheckBig class="w-5 h-5 text-color-primary" />
+      </div>
+      <div id="toast-icon-error">
+        <CircleX class="w-5 h-5 text-color-fail" />
+      </div>
+    </div>
+  </body>
 </html>

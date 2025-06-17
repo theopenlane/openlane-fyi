@@ -4,7 +4,9 @@ import {
   BadgeDollarSign,
   RouteOff,
   Bike,
-  ChevronRight, Linkedin, Instagram
+  ChevronRight,
+  Linkedin,
+  Instagram,
 } from "@lucide/astro";
 import GithubIcon from "../../components/icons/GithubIcon.astro";
 import DiscordIcon from "../../components/icons/DiscordIcon.astro";
@@ -36,9 +38,7 @@ import Team from "../../components/icons/Team.astro";
     <div
       class="flex items-center justify-center p-[10px] px-[5px] w-full sm:p-[25px] sm:px-[34px] text-lg font-normal leading-7 text-center rounded-lg bg-subbg-4 sm:w-[307.5px]"
     >
-      <p>
-        Policy and procedure management
-      </p>
+      <p>Policy and procedure management</p>
     </div>
     <div
       class="flex items-center justify-center p-[10px] px-[5px] w-full sm:p-[25px] sm:px-[34px] text-lg font-normal leading-7 text-center rounded-lg bg-subbg-4 sm:w-[307.5px]"
@@ -48,9 +48,7 @@ import Team from "../../components/icons/Team.astro";
     <div
       class="flex items-center justify-center p-[10px] px-[5px] w-full sm:p-[25px] sm:px-[34px] text-lg font-normal leading-7 text-center rounded-lg bg-subbg-4 sm:w-[307.5px]"
     >
-      <p>
-        Built-in risk management
-      </p>
+      <p>Built-in risk management</p>
     </div>
   </div>
 
@@ -59,13 +57,15 @@ import Team from "../../components/icons/Team.astro";
       Spots are limited — join the waitlist today.
     </p>
     <a
-        href="https://getopenlane.io/"
-        target="_blank"
+      href="https://getopenlane.io/"
+      target="_blank"
       class="px-6 py-2 border-2 rounded-full border-brand-400 flex items-center gap-2 font-medium text-base cursor-pointer group/feedback hover:border-primary transition-all duration-300"
     >
-    <span class="group-hover/feedback:!text-(--color-primary) transition-all duration-300">
-      Join the waitlist
-    </span>
+      <span
+        class="group-hover/feedback:!text-(--color-primary) transition-all duration-300"
+      >
+        Join the waitlist
+      </span>
       <ChevronRight
         class="w-4 h-4 group-hover/feedback:!text-(--color-primary) transition-all duration-300"
       />
@@ -73,7 +73,7 @@ import Team from "../../components/icons/Team.astro";
   </div>
 </section>
 
-<section class="flex flex-col items-center px-4 py-12 space-y-8 bg-slate-50 ">
+<section class="flex flex-col items-center px-4 py-12 space-y-8 bg-slate-50">
   <div class="text-center mb-0 font-medium mt-10">
     <p>Angel Round</p>
   </div>
@@ -88,52 +88,78 @@ import Team from "../../components/icons/Team.astro";
     class="max-w-7xl pl-0 md:pl-6 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch mt-10"
   >
     <div class="lg:col-span-6 h-full flex flex-col">
-      <Team/>
+      <Team />
 
       <p
         class="text-lg font-normal leading-7 mb-6 tracking-[-0.6px] text-color mt-5"
       >
-        We're currently raising a $500k angel round to accelerate product development and drive community adoption. If you're interested in learning more, we'd love to hear from you.
+        We're currently raising a $500k angel round to accelerate product
+        development and drive community adoption. If you're interested in
+        learning more, we'd love to hear from you.
       </p>
-
     </div>
 
     <div class="lg:col-span-6 h-full flex flex-col">
       <div class="mt-5">
-        <form class="space-y-4">
-          <div>
-            <label class="block text-color text-sm mb-1">Name</label>
+        <form method="POST" id="contact-form">
+          <div class="mb-4">
+            <label class="block text-color text-sm mb-1" for="name">Name</label>
             <input
+              name="name"
+              id="name"
               type="text"
-              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md focus:outline-none focus:border-input focus:border-input"
+              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md focus:outline-none focus:border-input"
             />
+            <p class="text-xs text-color-primary hidden" data-error-for="name">
+              Name is required.
+            </p>
           </div>
-          <div>
-            <label class="block text-color text-sm mb-1">Email</label>
+
+          <div class="mb-4">
+            <label class="block text-color text-sm mb-1" for="email"
+              >Email</label
+            >
             <input
+              name="email"
+              id="email"
               type="email"
-              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md focus:outline-none focus:border-input focus:border-input"
+              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md focus:outline-none focus:border-input"
             />
+            <p class="text-xs text-color-primary hidden" data-error-for="email">
+              Email is required.
+            </p>
           </div>
+
           <div>
-            <label class="block text-color text-sm mb-1">Message</label>
+            <label class="block text-color text-sm mb-1" for="message"
+              >Message</label
+            >
             <textarea
+              name="message"
+              id="message"
               rows="5"
-              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md resize-none focus:outline-none focus:border-input focus:border-input"
+              class="w-full px-3 py-2 bg-card border border-input text-color rounded-md resize-none focus:outline-none focus:border-input"
             ></textarea>
+            <p
+              class="text-xs text-color-primary hidden"
+              data-error-for="message"
+            >
+              Message is required.
+            </p>
           </div>
-          <a
-            href="https://github.com/theopenlane"
-            target="_blank"
-            class="px-4 py-2 border-2 rounded-full border-brand-400  inline-flex  items-center gap-2 font-medium text-base cursor-pointer group/feedback hover:border-primary transition-all duration-300"
+
+          <button
+            id="submit-btn"
+            type="submit"
+            class="px-4 py-2 border-2 inline-flex rounded-full border-brand-400 items-center gap-2 font-medium text-base cursor-pointer group/feedback hover:border-primary transition-all duration-300"
           >
             <span
-              class="text-color text-sm group-hover/feedback:!text-(--color-primary) transition-all duration-300"
-            >Let's connect</span>
-            <ChevronRight
-              class="w-4 h-4 text-color group-hover/feedback:!text-(--color-primary) transition-all duration-300"
-            />
-          </a>
+              class="text-sm group-hover/feedback:!text-(--color-primary) transition-all duration-300"
+            >
+              <span class="default-text">Send Message</span>
+              <span class="loading-text hidden">Sending...</span>
+            </span>
+          </button>
         </form>
       </div>
     </div>
@@ -145,8 +171,92 @@ import Team from "../../components/icons/Team.astro";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { MotionPathPlugin } from "gsap/MotionPathPlugin";
   import { CSSPlugin } from "gsap/CSSPlugin";
+  import { actions } from "astro:actions";
+
   gsap.registerPlugin(ScrollTrigger, MotionPathPlugin, CSSPlugin);
   document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("contact-form");
+    const button = document.getElementById("submit-btn");
+    const loadingText = button.querySelector(".loading-text");
+    const defaultText = button.querySelector(".default-text");
+    const toastContainer = document.getElementById("toast-container");
+    const toastIcons = {
+      success: document.getElementById("toast-icon-success").innerHTML,
+      error: document.getElementById("toast-icon-error").innerHTML,
+    };
+
+    function showToast(message, type = "success") {
+      const toast = document.createElement("div");
+
+      toast.className = `
+        flex items-center gap-3 px-4 py-3 rounded-lg border shadow-lg w-full max-w-sm
+        ${
+          type === "success"
+            ? "bg-card border-brand-400 text-color-primary"
+            : "bg-card border-color-fail text-color-primary"
+        }
+        animate-slide-in
+      `;
+
+      toast.innerHTML = `
+        <div class="icon w-5 h-5 shrink-0">${toastIcons[type]}</div>
+        <span class="flex-1 text-sm font-medium">${message}</span>
+      `;
+      toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.add("opacity-0", "translate-y-2");
+        setTimeout(() => toast.remove(), 300);
+      }, 5000);
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      let valid = true;
+
+      ["name", "email", "message"].forEach((fieldName) => {
+        const input = form.querySelector(`[name="${fieldName}"]`);
+        const error = form.querySelector(`[data-error-for="${fieldName}"]`);
+        if (!input.value.trim()) {
+          error.classList.remove("hidden");
+          valid = false;
+        } else {
+          error.classList.add("hidden");
+        }
+      });
+
+      if (!valid) {
+        return;
+      }
+
+      button.disabled = true;
+      defaultText.classList.add("hidden");
+      loadingText.classList.remove("hidden");
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(actions.send, {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!res.ok) {
+          throw new Error("Request failed");
+        }
+
+        showToast("Message sent! We'll be in touch.", "success");
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        showToast("Something went wrong. Please try again.", "error");
+      } finally {
+        button.disabled = false;
+        defaultText.classList.remove("hidden");
+        loadingText.classList.add("hidden");
+      }
+    });
+
     if (window.innerWidth < 768) {
       return;
     }
@@ -194,5 +304,3 @@ import Team from "../../components/icons/Team.astro";
     draw();
   });
 </script>
-
-
