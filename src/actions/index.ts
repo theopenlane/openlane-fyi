@@ -19,7 +19,7 @@ export const server = {
         subject: "Openlane Investment",
         html: `
           <div style="font-family: sans-serif; font-size: 14px;">
-            <strong>New Waitlist Submission</strong><br><br>
+            <strong>New Investment Submission</strong><br><br>
         
             <strong>Name:</strong> ${name}<br>
             <strong>Email:</strong> ${email}<br>
