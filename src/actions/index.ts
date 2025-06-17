@@ -16,7 +16,7 @@ export const server = {
       const { data, error } = await resend.emails.send({
         from: "Openlane <no-reply@mail.theopenlane.io>",
         to: "info@theopenlane.io",
-        subject: "Openlane Waitlist",
+        subject: "Openlane Investment",
         html: `
           <div style="font-family: sans-serif; font-size: 14px;">
             <strong>New Waitlist Submission</strong><br><br>
