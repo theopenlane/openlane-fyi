@@ -20,7 +20,7 @@ export const server = {
         html: `
           <div style="font-family: sans-serif; font-size: 14px;">
             <strong>New Investment Submission</strong><br><br>
-        
+
             <strong>Name:</strong> ${name}<br>
             <strong>Email:</strong> ${email}<br>
             <strong>Message:</strong><br>

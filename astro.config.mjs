@@ -11,7 +11,7 @@ import vercel from "@astrojs/vercel";
 export default defineConfig({
   prefetch: true,
   output: "server",
-  site: "https://example.com",
+  site: "https://www.openlane.fyi",
   integrations: [mdx(), sitemap(), react()],
 
   vite: {
