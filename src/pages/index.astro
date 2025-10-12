@@ -1,10 +1,10 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../layouts/waitlist/Footer.astro";
+import Footer from "../layouts/getstarted/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
-import WaitlistHeader from "../layouts/waitlist/WaitlistHeader.astro";
-import MainSection from "../layouts/waitlist/MainSection.astro";
-import JoinBeta from "../layouts/waitlist/JoinBeta.astro";
+import JoinHeader from "../layouts/getstarted/JoinHeader.astro";
+import MainSection from "../layouts/getstarted/MainSection.astro";
+import GetStarted from "../layouts/getstarted/GetStarted.astro";
 import { CircleCheckBig, CircleX } from "@lucide/astro";
 ---
 
@@ -12,16 +12,26 @@ import { CircleCheckBig, CircleX } from "@lucide/astro";
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    {import.meta.env.PIRSCH_KEY && <script defer src="https://api.pirsch.io/pa.js" id="pianjs" data-code={import.meta.env.PIRSCH_KEY} />}
+    {
+      import.meta.env.PIRSCH_KEY && (
+        <script
+          defer
+          src="https://api.pirsch.io/pa.js"
+          id="pianjs"
+          data-code={import.meta.env.PIRSCH_KEY}
+        />
+      )
+    }
   </head>
   <body class="font-outfit">
-    <WaitlistHeader />
+    <JoinHeader />
     <main>
       <MainSection />
-      <JoinBeta />
+      <GetStarted />
     </main>
     <Footer />
-    <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2"></div>
+    <div id="toast-container" class="fixed bottom-4 right-4 z-50 space-y-2">
+    </div>
     <div id="toast-icons" class="hidden">
       <div id="toast-icon-success">
         <CircleCheckBig class="w-5 h-5 text-color-primary" />
